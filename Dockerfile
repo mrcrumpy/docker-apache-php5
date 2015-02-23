@@ -20,11 +20,16 @@ RUN chmod 755 /*.sh
 # Add our fpm configuration
 COPY fpm.conf /etc/php5/fpm/pool.d/www.conf
 
+# Add our apache configuration
+COPY apache2.conf /etc/apache2/apache2.conf
+
 # Give www-data write access to mounted volumes
 RUN usermod -u 1000 www-data
 
-# Enable apache module
+# Enable apache modules
 RUN a2enmod proxy_fcgi
+RUN a2enmod rewrite
+RUN a2enmod headers
 
 EXPOSE 80
 
