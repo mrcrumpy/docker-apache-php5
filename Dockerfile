@@ -23,6 +23,10 @@ COPY fpm.conf /etc/php5/fpm/pool.d/www.conf
 # Add our apache configuration
 COPY apache2.conf /etc/apache2/apache2.conf
 
+# Enable required modules
+RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
+RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+
 # Give www-data write access to mounted volumes
 RUN usermod -u 1000 www-data
 
