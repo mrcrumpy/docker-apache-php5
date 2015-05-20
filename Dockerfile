@@ -29,6 +29,8 @@ RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 
 # Enable Xdebug remote_connect_back
 RUN echo "xdebug.remote_connect_back=on" >> /etc/php5/mods-available/xdebug.ini
+RUN echo "xdebug.remote_enable=on" >> /etc/php5/mods-available/xdebug.ini
+RUN echo "xdebug.remote_autostart=on" >> /etc/php5/mods-available/xdebug.ini
 
 # Give www-data write access to mounted volumes
 RUN usermod -u 1000 www-data
