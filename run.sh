@@ -2,7 +2,6 @@
 
 # Function to update the fpm configuration to make the service environment variables available
 function setEnvironmentVariable() {
-
     if [ -z "$2" ]; then
         echo "Environment variable '$1' not set."
         return

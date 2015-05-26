@@ -19,8 +19,8 @@ RUN chmod 755 /*.sh
 
 # Add our fpm configuration
 COPY fpm.conf /etc/php5/fpm/pool.d/www.conf
-
 # Add our apache configuration
+
 COPY apache2.conf /etc/apache2/apache2.conf
 
 # Enable required modules
@@ -31,6 +31,7 @@ RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 RUN echo "xdebug.remote_connect_back=on" >> /etc/php5/mods-available/xdebug.ini
 RUN echo "xdebug.remote_enable=on" >> /etc/php5/mods-available/xdebug.ini
 RUN echo "xdebug.remote_autostart=on" >> /etc/php5/mods-available/xdebug.ini
+RUN echo "xdebug.remote_port=9001" >> /etc/php5/mods-available/xdebug.ini
 
 # Give www-data write access to mounted volumes
 RUN usermod -u 1000 www-data
