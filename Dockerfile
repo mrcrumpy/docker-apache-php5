@@ -32,6 +32,7 @@ RUN echo "xdebug.remote_connect_back=on" >> /etc/php5/mods-available/xdebug.ini
 RUN echo "xdebug.remote_enable=on" >> /etc/php5/mods-available/xdebug.ini
 RUN echo "xdebug.remote_autostart=on" >> /etc/php5/mods-available/xdebug.ini
 RUN echo "xdebug.remote_port=9001" >> /etc/php5/mods-available/xdebug.ini
+RUN echo "xdebug.max_nesting_level=25" >> /etc/php5/mods-available/xdebug.ini
 
 # Give www-data write access to mounted volumes
 RUN usermod -u 1000 www-data
